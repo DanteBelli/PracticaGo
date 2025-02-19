@@ -3,12 +3,21 @@ package saludo
 import (
 	"errors"
 	"fmt"
+	"math/rand"
 )
 
 func Hola(nombre string) (string, error) {
 	if nombre == "" {
-		return "", errors.New("Ingrese un Nombre")
+		return nombre, errors.New("Ingrese un Nombre")
 	}
-	message := fmt.Sprintf("Hi , %v. Welcome!", nombre)
+	message := fmt.Sprintf(randomFormat(), nombre)
 	return message, nil
+}
+func randomFormat() string {
+	formats := []string{
+		"Hola %v, Bienvendio!",
+		"Que bueno volver a ver %v,",
+		"Vamos Boca %v,",
+	}
+	return formats[rand.Intn(len(formats))]
 }
