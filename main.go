@@ -7,9 +7,10 @@ import (
 )
 
 func main() {
-	log.SetPrefix("greetings: ")
+	log.SetPrefix("Saludos: ")
 	log.SetFlags(0)
-	message, err := saludo.Hola("Dante")
+	nombre := []string{"Dante", "Rosario", "Pedro"}
+	message, err := saludo.Hellos(nombre)
 	if err != nil {
 		log.Fatal(err)
 	}

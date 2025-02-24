@@ -21,3 +21,14 @@ func randomFormat() string {
 	}
 	return formats[rand.Intn(len(formats))]
 }
+func Hellos(nombres []string) (map[string]string, error) {
+	mensajes := make(map[string]string)
+	for _, nombre := range nombres {
+		mensaje, err := Hola(nombre)
+		if err != nil {
+			return nil, err
+		}
+		mensajes[nombre] = mensaje
+	}
+	return mensajes, nil
+}
